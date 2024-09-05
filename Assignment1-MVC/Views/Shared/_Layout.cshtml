@@ -1,0 +1,73 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    @* Start NavBar *@
+   @*  <nav class="mt-5">
+        <center>
+            <a class="btn btn-primary" href="/Home/Index">Home</a>
+            <a class="btn btn-secondary" href="/Home/AboutUs">About Us</a>
+            <a class="btn btn-success" href="/Home/Privacy">Privacy</a>
+            <a class="btn btn-warning" href="/Home/ContactUs">Contact Us</a>
+            <a class="btn btn-danger" href="/Account/Login">Login</a>
+            <a class="btn btn-info" href="/Account/Register">Register</a>
+        </center>
+    </nav> *@
+   @*  HTML Helper
+
+    <nav class="mt-5">
+        <div class="text-center">
+            @Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("About Us", "AboutUs", "Home", null, new { @class = "btn btn-secondary" })
+            @Html.ActionLink("Privacy", "Privacy", "Home", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-danger" })
+            @Html.ActionLink("Register", "Register", "Account", null, new { @class = "btn btn-info" })
+        </div>
+    </nav> *@
+
+
+    @*  HTMl Tag Helper: *@
+    <nav class="mt-5">
+        <div class="text-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Home</a>
+            <a asp-controller="Home" asp-action="AboutUs" class="btn btn-secondary">About Us</a>
+            <a asp-controller="Home" asp-action="Privacy" class="btn btn-success">Privacy</a>
+            <a asp-controller="Home" asp-action="ContactUs" class="btn btn-warning">Contact Us</a>
+            <a asp-controller="Account" asp-action="Login" class="btn btn-danger">Login</a>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-info">Register</a>
+        </div>
+    </nav>
+
+    
+  
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @* start Footer *@
+
+    <footer class="mt-5">
+        <center>
+            <div>
+                <p>CopyRights &copy; Route @DateTime.Now.Year</p>
+            </div>
+        </center>
+    </footer>
+
+    @* start Footer *@
+</body>
+
+</html>
